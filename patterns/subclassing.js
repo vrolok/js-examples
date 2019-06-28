@@ -43,5 +43,49 @@ nes.on();
 var ps2 = new nextGenConsole('Sony PlayStation 2');
 ps2.on();
 ps2.save('Tekken 5');
+
+
+// =========================ES2015=========================
 // ========================================================
-// ========================================================
+
+class ConsoleES5 {
+  constructor(model) {
+    this.model = model;
+    this.architecture = '8bit';
+    this.running = false;
+  }
+
+  on() {
+    this.running = true;
+    console.log(`starting ${this.model}`);
+  }
+
+  load() {
+    if (this.running) {
+      console.log(`loading ${this.game}`);
+    }
+  }
+}
+
+class nextGenConsoleES5 extends ConsoleES5 {
+  constructor(model) {
+    super(model);
+
+    this.architecture = '128bit'
+    this.memory = [];
+  }
+
+  save(game) {
+    if (this.running) {
+      console.log(`saving game ${game}`);
+      this.memory.push(game)
+    }
+  }
+}
+
+var nesES5 = new ConsoleES5('NES es5');
+nesES5.on();
+
+var ps2ES5 = new nextGenConsoleES5('Sony PlayStation 2 es5');
+ps2ES5.on();
+ps2ES5.save('Final Fantasy');
