@@ -5,7 +5,6 @@ class Ticket {
     // class 3 - economy, 2 - business, 1 - first
     this.class = config.class || 3;
     this.price = config.price;
-
   }
 }
 
@@ -25,15 +24,15 @@ upgradeTicketClass(t);
 
 console.log(t); // Ticket { class: 1, price: 2999 }
 
-//=================================================
-//=================================================
+// =================================================
+// =================================================
 
 class Pasta {
   constructor(kind) {
     this.kind = kind || 'dry';
   }
 
-  cook(type='dough') {
+  cook(type = 'dough') {
     if (this.kind === 'dry') {
       console.log(`cooking ${this.kind} ${type} for 10min`);
     } else if (this.kind === 'fresh') {
@@ -65,7 +64,7 @@ class Sauce {
   static add(name, pasta) {
     console.log(`${name} added to your ${pasta.variety}`);
     pasta.combine(name + ' 🍝');
-    return pasta
+    return pasta;
   }
 }
 
@@ -73,7 +72,7 @@ class Cheese {
   static add(name, pasta) {
     console.log(`shreded ${name} added to your ${pasta.variety}`);
     pasta.combine(name + ' 🧀');
-    return pasta
+    return pasta;
   }
 }
 

@@ -11,39 +11,38 @@ function Console(model) {
 Console.prototype.on = function on() {
   this.running = true;
   console.log(`starting ${this.model}`);
-}
+};
 
 Console.prototype.load = function load(game) {
   if (this.running) {
     console.log(`loading ${this.game}`);
   }
-}
+};
 
-function nextGenConsole(model) {
+function NextGenConsole(model) {
   // 1. "borrow" attrs from a Console constructor.
-  Console.call(this, model); 
+  Console.call(this, model);
 
-  this.architecture = '128bit'
+  this.architecture = '128bit';
   this.memory = [];
 }
 
 // 2. "borrow" methods
-nextGenConsole.prototype = Object.create(Console.prototype);
+NextGenConsole.prototype = Object.create(Console.prototype);
 
 Console.prototype.save = function save(game) {
   if (this.running) {
     console.log(`saving game ${game}`);
-    this.memory.push(game)
+    this.memory.push(game);
   }
-}
+};
 
 var nes = new Console('NES');
 nes.on();
 
-var ps2 = new nextGenConsole('Sony PlayStation 2');
+var ps2 = new NextGenConsole('Sony PlayStation 2');
 ps2.on();
 ps2.save('Tekken 5');
-
 
 // =========================ES2015=========================
 // ========================================================
@@ -67,18 +66,18 @@ class ConsoleES5 {
   }
 }
 
-class nextGenConsoleES5 extends ConsoleES5 {
+class NextGenConsoleES5 extends ConsoleES5 {
   constructor(model) {
     super(model);
 
-    this.architecture = '128bit'
+    this.architecture = '128bit';
     this.memory = [];
   }
 
   save(game) {
     if (this.running) {
       console.log(`saving game ${game}`);
-      this.memory.push(game)
+      this.memory.push(game);
     }
   }
 }
@@ -86,6 +85,6 @@ class nextGenConsoleES5 extends ConsoleES5 {
 var nesES5 = new ConsoleES5('NES es5');
 nesES5.on();
 
-var ps2ES5 = new nextGenConsoleES5('Sony PlayStation 2 es5');
+var ps2ES5 = new NextGenConsoleES5('Sony PlayStation 2 es5');
 ps2ES5.on();
 ps2ES5.save('Final Fantasy');

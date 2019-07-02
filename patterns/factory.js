@@ -15,21 +15,21 @@ function PhysicalServer(options) {
 
 function ServerFactory() {}
 
-ServerFactory.prototype.serverClass = VirtualServer;
+ServerFactory.prototype.ServerClass = VirtualServer;
 
 // the meat
 ServerFactory.prototype.createServer = function serverFactory(options) {
-  switch(options.serverType) {
+  switch (options.serverType) {
     case 'virtual':
-      this.serverClass = VirtualServer;
+      this.ServerClass = VirtualServer;
       break;
     case 'physical':
-      this.serverClass = PhysicalServer;
+      this.ServerClass = PhysicalServer;
       break;
   }
-  
-  return new this.serverClass(options);
-}
+
+  return new this.ServerClass(options);
+};
 
 var factory = new ServerFactory();
 
@@ -43,7 +43,7 @@ console.log(v1); // VirtualServer { cores: 1, ram: 1024, disk: '50GB' }
 
 // Abstract Factory
 
-var abstractServerFactory = (function abstractFactory(){
+var abstractServerFactory = (function abstractFactory() {
   var types = {};
 
   return {
@@ -57,7 +57,7 @@ var abstractServerFactory = (function abstractFactory(){
 
       return abstractServerFactory;
     }
-  }
+  };
 }());
 
 function StorageServer(options) {
@@ -71,12 +71,12 @@ abstractServerFactory.registerFactory('physical', PhysicalServer);
 var bucket = abstractServerFactory.getFactory('storage', {
   disk: '2TB',
   raid: 6
-})
+});
 
 var p1 = abstractServerFactory.getFactory('physical', {
-  cpu:'Intel Xeon',
+  cpu: 'Intel Xeon',
   ram: '64GB'
-})
+});
 
 console.log(bucket);
 console.log(p1);

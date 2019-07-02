@@ -23,7 +23,7 @@ var Tower = {
       }
     }
   }
-}
+};
 
 var Airplane = {
   flight: '',
@@ -37,14 +37,14 @@ var Airplane = {
     this.mode = !this.mode;
     console.log(this.flight + ' airborne');
   }
-}
+};
 
 var TAS = Object.create(Tower);
 
-var p1 = Object.assign(Object.create(Airplane), {"flight": "A1111"});
-var p2 = Object.assign(Object.create(Airplane), {"flight": "B2222", "mode": true});
-var p3 = Object.assign(Object.create(Airplane), {"flight": "C3333"});
-var p4 = Object.assign(Object.create(Airplane), {"flight": "D4444", "mode": true});
+var p1 = Object.assign(Object.create(Airplane), { 'flight': 'A1111' });
+var p2 = Object.assign(Object.create(Airplane), { 'flight': 'B2222', 'mode': true });
+var p3 = Object.assign(Object.create(Airplane), { 'flight': 'C3333' });
+var p4 = Object.assign(Object.create(Airplane), { 'flight': 'D4444', 'mode': true });
 
 // Let's add & process all planes to a queue
 TAS.inQueue(p1); // A1111 queued for landing.
