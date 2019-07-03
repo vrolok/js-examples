@@ -18,3 +18,4 @@ rules:
       'error',
       { 'anonymous': 'always', 'named': 'never', 'asyncArrow': 'always' },
     ]
+  guard-for-in: 'error'
