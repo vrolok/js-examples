@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "dependencies": {
+    "backbone": "^1.4.0",
+    "underscore": "^1.9.1",
+    "zepto": "^1.2.0"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}

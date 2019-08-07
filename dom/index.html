@@ -1,18 +1,60 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>DOM Playground</title>
-	<!-- <link rel="stylesheet" href="main.css"> -->
-</head>
-	<body>
-		<h1>DOM Playground</h1>
 
-		<div id="content">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis erat nec sem vehicula, non auctor mauris tristique. In congue arcu in eros congue dictum. Aliquam nec orci ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec condimentum nec lorem dapibus feugiat. Integer iaculis quam magna, vel consequat lorem semper id. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur iaculis interdum pulvinar. Pellentesque dictum bibendum elit vel sollicitudin. Nunc non facilisis sem, vel eleifend ex. Donec tincidunt quis ante in lacinia. Duis tincidunt, dui consequat finibus volutpat, diam nisl viverra justo, non commodo libero leo eu erat.</p>
-			<button type="submit">Press Me</button>
-		</div>
-	</body>
+<head>
+  <meta charset="utf-8">
+  <title>DOM Playground</title>
+  <!-- <link rel="stylesheet" href="main.css"> -->
+</head>
+
+<body>
+  <h1>DOM Playground</h1>
+
+  <div id="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mattis erat nec sem vehicula, non auctor
+      mauris tristique. In congue arcu in eros congue dictum.</p>
+    <button type="submit" id="pressme">Press Me</button>
+    <app-button>web component</app-button>
+  </div>
+</body>
 <!-- <script src="https://jashkenas.github.io/underscore/underscore-min.js"></script> -->
+<script src="/Users/vlad/Desktop/es6-promise.js"></script>
+<script>
+  ;(function $globIEFE() {
+    "use strict"
+    
+    // const lorem = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+    //     Phasellus mattis erat nec sem vehicula, non auctor mauris tristique. \
+    //     In congue arcu in eros congue dictum.";
+
+    // const button = document.getElementById("pressme");
+    // const content = document.getElementById("content");
+    // const p = content.getElementsByTagName("p")[0];
+
+    // button.addEventListener("click", function $pressButton() {
+    //   // p.insertAdjacentHTML("beforeend", lorem);
+
+    //   p.setAttribute("id", "derp");
+    // })
+    
+    // var Vrolok$1 = function() {
+    //   function Vrolok(func) {
+    //     console.log(this instanceof Vrolok);
+    //     var f = func();
+    //     console.log(f);
+    //   }
+
+    //   return Vrolok;
+    // }()
+
+    // globalThis.Vrolok = Vrolok$1;
+
+    // debugger;
+    var promise = new Promise1((resolve, reject) => resolve(1));
+    promise.then((val) => {++val; return val;});
+    
+  }());
+</script>
 <script src="./observer.js"></script>
+<script src="./webcomponent.js"></script>
 </html>
