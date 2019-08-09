@@ -17,13 +17,37 @@ function output(text) {
 	console.log(text);
 }
 
+var order = [];
+var store = {};
+
+function showText(file, text) {
+	if (!store[file]) {
+		store[file] = text;
+	}
+
+	let files = order;
+	for (let i = 0; i < files.length; i++) {
+		if (store[files[i]]) {
+			if (store[files[i]] !== 'done') {
+				output(store[files[i]]);
+				store[files[i]] = 'done';
+			}
+		} else {
+			return false;
+		}
+	}
+
+	output('Complete!');
+}
+
 // **************************************
 // The old-n-busted callback way
-
 function getFile(file) {
-	fakeAjax(file,function(text){
-		// what do we do here?
+	fakeAjax(file, function(text) {
+		showText(file, text);
 	});
+
+	order.push(file);
 }
 
 // request all files at once in "parallel"
