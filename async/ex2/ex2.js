@@ -1,10 +1,10 @@
 function fakeAjax(url,cb) {
-	var fake_responses = {
+	const fake_responses = {
 		"file1": "The first text",
 		"file2": "The middle text",
 		"file3": "The last text"
 	};
-	var randomDelay = (Math.round(Math.random() * 1E4) % 8000) + 1000;
+	const randomDelay = (Math.round(Math.random() * 1E4) % 8000) + 1000;
 
 	console.log("Requesting: " + url);
 
@@ -20,10 +20,30 @@ function output(text) {
 // **************************************
 
 function getFile(file) {
+	let resp;
 
+	fakeAjax(file, function(text) {
+		if (resp) resp(text);
+		resp = text;
+	})
+
+	return function thunk(cb) {
+		if (resp) cb(resp);
+		resp = cb;
+	}
 }
 
+const th1 = getFile('file1');
+const th2 = getFile('file2');
+const th3 = getFile('file3');
 
-// request all files at once in "parallel"
-// ???
-
+th1(function ready(text) {
+	output(text);
+	th2(function ready(text) {
+		output(text);
+		th3(function ready(text) {
+			output(text);
+			output('Complete!');
+		});
+	});
+})
