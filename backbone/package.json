@@ -2,7 +2,7 @@
   "private": true,
   "dependencies": {
     "backbone": "^1.4.0",
-    "underscore": "^1.9.1",
+    "underscore": "^1.12.1",
     "zepto": "^1.2.0"
   },
   "devDependencies": {
