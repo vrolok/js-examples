@@ -6,6 +6,6 @@
     "zepto": "^1.2.0"
   },
   "devDependencies": {
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.2"
   }
 }
